@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Forecast, Dublin</title>
+    
+    <!-- font links -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Cormorant Upright">
+    
+    <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Gentium Basic">
+    
+    <!-- link to external cascading style sheet -->
+    <link href="styles.css" rel="stylesheet" type="text/css">
+
+    <!-- link to external JavaScript file -->
+    <script src="script.js"></script>
+</head>
+
+<body id="top">
+<div id="horizontal_rule1"></div>
+
+
+<header>
+    <h1>Weather Forecast</h1>
+    <h2>Dublin - Ireland</h2>
+    <img id="harp" src="green_harp.jpg" width="100px">
+    <p><b>This site will allow you to check in details the weather forecast for Dublin, Ireland, during the 5-days period between the 18th and the 22nd of October 2016. The widget below shows instead present weather conditions.</b></p>
+</header>
+    
+<section>
+    
+<!-- code from https://embedgooglemaps.com/en/ -->
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div id="map" style='overflow:hidden;height:220px;width:350px;'><div id='gmap_canvas' style='height:220px;width:350px;'></div><div><small><a href="http://embedgooglemaps.com">embed google maps</a></small></div><div><small><a href="https://www.autohuren.world/">voor alle typen</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(53.37178957780345,-6.259296898268866),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(53.37178957780345,-6.259296898268866)});infowindow = new google.maps.InfoWindow({content:'<strong>Dublin map</strong><br>Dublin, Ireland<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+<!-- end of code from https://embedgooglemaps.com/en/ -->
+
+
+<iframe id="forecast_embed" type="text/html" frameborder="0" height="245"  src="http://forecast.io/embed/#lat=53.3498&lon=-6.2603&name=Dublin&units=uk"></iframe>
+</section>
+
+<section id="form">
+<form onsubmit="return display()">
+    Choose the number of days (between 1 and 5)<br><br>
+    Click on 'Details' to see 3-hour interval forecasts for each day<br><br>
+    Days: <input name="days" type="number" min="1" max="5" id="chooseDays"/><br><br>
+
+    Pressure <input type="checkbox" name="pressure" id="pres">
+    Humidity <input type="checkbox" name="humidity" id="humid">
+    Wind speed <input type="checkbox" name="wind_speed" id="wind"><br><br>
+
+    <input id="submit" type="submit" value="Submit">
+    <input id="reset" type="reset" onclick="return resetForm()" value="Reset">
+</form>
+    
+<div id="result" class="result"></div>
+<div id="result2" class="result2"></div>    
+
+</section>
+    
+<div id="arrowUpdiv">
+<a href="#top"><img id="arrowUp" src="arrow%20up%20violet.jpg"></a></div>
+<footer>
+    
+    <small>Copyright © 2016 Giuseppe Benanti</small>
+</footer>
+    
+</body>  
+</html>
